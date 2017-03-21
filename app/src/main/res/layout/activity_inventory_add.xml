@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/inventory_item_title"
+            style="@style/TextViewStyle"
+            android:text="@string/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/inventory_title_edit_text"
+            style="@style/EditorFieldStyle"
+            android:layout_below="@id/inventory_item_title"
+            android:hint="@string/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/inventory_item_price"
+            style="@style/TextViewStyle"
+            android:layout_below="@id/inventory_title_edit_text"
+            android:text="@string/product_price"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <EditText
+            android:id="@+id/inventory_item_price_edit_text"
+            style="@style/EditorFieldStyle"
+            android:layout_below="@id/inventory_item_price"
+            android:inputType="number"
+            android:hint="@string/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/inventory_item_quantity"
+            style="@style/TextViewStyle"
+            android:layout_below="@id/inventory_item_price_edit_text"
+            android:text="@string/product_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/inventory_item_quantity_edit_text"
+            style="@style/EditorFieldStyle"
+            android:layout_below="@id/inventory_item_quantity"
+            android:inputType="number"
+            android:hint="@string/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <LinearLayout
+            android:id="@+id/item_update_group_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inventory_item_quantity_edit_text"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/add_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="#808BC34A"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
