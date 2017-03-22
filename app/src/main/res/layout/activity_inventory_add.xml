@@ -60,14 +60,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <LinearLayout
+            android:id="@+id/upload_image_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inventory_item_quantity_edit_text"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
 
+            <ImageView
+                android:id="@+id/inventory_item_image_view"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:layout_height="120dp"/>
+            <Button
+                android:id="@+id/upload_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_weight="1"
+                android:text="@string/upload_image"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/item_update_group_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/inventory_item_quantity_edit_text"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@id/upload_image_layout"
+            >
 
             <Button
                 android:id="@+id/add_item"
@@ -79,6 +104,16 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp"/>
 
+            <Button
+                android:id="@+id/delete_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:background="#80F44336"
+                android:text="@string/delete_item"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
 
         </LinearLayout>
 

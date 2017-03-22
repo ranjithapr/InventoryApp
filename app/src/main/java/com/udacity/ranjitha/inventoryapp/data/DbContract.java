@@ -28,6 +28,7 @@ public final class DbContract {
         public static final String COLUMN_ITEM_NAME = "item_name";
         public static final String COLUMN_ITEM_PRICE = "item_price";
         public static final String COLUMN_ITEM_QUANTITY = "item_quantity";
+        public static final String COLUMN_ITEM_IMAGE = "item_image";
 
         public static final String CONTENT_LIST_TYPE =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + AUTHORITY + "/" + PATH;

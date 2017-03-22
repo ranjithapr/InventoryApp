@@ -10,7 +10,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     public static final String DB_NAME = "MyInventory.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
     public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -23,8 +23,9 @@ public class DbHelper extends SQLiteOpenHelper {
                         DbContract.TableInfo._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         DbContract.TableInfo.COLUMN_ITEM_NAME + " TEXT, " +
                         DbContract.TableInfo.COLUMN_ITEM_PRICE + " INTEGER, " +
-                        DbContract.TableInfo.COLUMN_ITEM_QUANTITY + " INTEGER " +
-                         ")";
+                        DbContract.TableInfo.COLUMN_ITEM_QUANTITY + " INTEGER, " +
+                        DbContract.TableInfo.COLUMN_ITEM_IMAGE + " TEXT" + ")";
+
         db.execSQL(SQL_CREATE_INVENTORY_ITEM_ENTRY);
 
     }
