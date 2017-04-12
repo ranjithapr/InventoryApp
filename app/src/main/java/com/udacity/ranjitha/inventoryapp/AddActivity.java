@@ -110,6 +110,7 @@ public class AddActivity extends AppCompatActivity
         contentValues.put(DbContract.TableInfo.COLUMN_ITEM_PRICE, priceStr);
         contentValues.put(DbContract.TableInfo.COLUMN_ITEM_QUANTITY, quanStr);
         contentValues.put(DbContract.TableInfo.COLUMN_ITEM_IMAGE,selectedImage.toString().trim());
+     //   contentValues.put(DbContract.TableInfo.COLUMN_ITEM_IMAGE,"text1");
 
 
         if (currentItem == null) {
@@ -190,8 +191,8 @@ public class AddActivity extends AppCompatActivity
             if(itemImage == null)
                 Toast.makeText(this,"Please choose Image",Toast.LENGTH_SHORT).show();
             else {
-                selectedImage = Uri.parse(itemImage);
-                ((ImageView)findViewById(R.id.inventory_item_image_view)).setImageURI(selectedImage);
+               selectedImage = Uri.parse(itemImage);
+               ((ImageView)findViewById(R.id.inventory_item_image_view)).setImageURI(selectedImage);
             }
         }
     }

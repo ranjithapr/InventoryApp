@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.udacity.ranjitha.inventoryapp.data.DbContract;
 
-import static android.R.attr.id;
 
 
 public class DbCursorAdapter extends android.widget.CursorAdapter {
@@ -52,7 +51,7 @@ public class DbCursorAdapter extends android.widget.CursorAdapter {
         int inventoryItemNameColumnIndex = cursor.getColumnIndex(DbContract.TableInfo.COLUMN_ITEM_NAME);
         int inventoryItemPriceColumnIndex = cursor.getColumnIndex(DbContract.TableInfo.COLUMN_ITEM_PRICE);
         int inventoryItemQuantityColumnIndex = cursor.getColumnIndex(DbContract.TableInfo.COLUMN_ITEM_QUANTITY);
-
+        final int id = cursor.getPosition();
         String inventoryItemNameString = cursor.getString(inventoryItemNameColumnIndex);
         String inventoryItemPriceString = cursor.getString(inventoryItemPriceColumnIndex);
         final String inventoryItemQuantityString = cursor.getString(inventoryItemQuantityColumnIndex);
@@ -60,7 +59,7 @@ public class DbCursorAdapter extends android.widget.CursorAdapter {
 
         inventoryItemNameTextView.setText(inventoryItemNameString);
         inventoryItemPriceTextView.setText("Rs:"+inventoryItemPriceString);
-        inventoryItemQuantityTextView.setText("Units:"+inventoryItemQuantityString);
+        inventoryItemQuantityTextView.setText(inventoryItemQuantityString);
 
         inventoryItemSaleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +67,15 @@ public class DbCursorAdapter extends android.widget.CursorAdapter {
                 if (itemQuantity[0] == 0) {
                     Toast.makeText(mContext, "Item is out of Stock!", Toast.LENGTH_SHORT).show();
                 } else {
+                    System.out.println("-----------click");
                     itemQuantity[0] = itemQuantity[0] - 1;
                     ContentValues values = new ContentValues();
                     values.put(DbContract.TableInfo.COLUMN_ITEM_QUANTITY, itemQuantity[0]);
                     inventoryItemQuantityTextView.setText(itemQuantity[0] + "");
+
                     Uri currentItemUri = Uri.withAppendedPath(DbContract.TableInfo.CONTENT_PATH,
-                            getItemId(cursor.getPosition()) +"");
+                            getItemId(id) +"");
+
                     mContext.getContentResolver().update(currentItemUri,
                             values,null,null);
                 }
@@ -84,7 +86,7 @@ public class DbCursorAdapter extends android.widget.CursorAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,DetailActivity.class);
-                long itemId = getItemId(cursor.getPosition());
+                long itemId = getItemId(id);
                 intent.putExtra(ITEM_INDEX,itemId + "");
                 mContext.startActivity(intent);
             }

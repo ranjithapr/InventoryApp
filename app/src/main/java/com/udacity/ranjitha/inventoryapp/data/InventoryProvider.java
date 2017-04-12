@@ -84,7 +84,12 @@ public class InventoryProvider extends ContentProvider {
         if (itemQuantity == null || itemQuantity < 0) {
             throw new IllegalArgumentException("Quantity is Mandatory");
         }
-
+        //check the item quantity is not null and valid
+//            String itemImage = values.getAsString(DbContract.TableInfo.COLUMN_ITEM_IMAGE);
+//            if (itemImage == null) {
+//                throw new IllegalArgumentException(" item requires Image");
+//            }
+//        }
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
         //insert the new inventory item with given values
@@ -103,7 +108,10 @@ public class InventoryProvider extends ContentProvider {
 
     @Override
     public int update(Uri uri, ContentValues values, String select, String[] args) {
+
         int match = sUriMatcher.match(uri);
+        System.out.println("-----------update"+match);
+
         switch (match) {
             case INVENTORY:
                 return updateInventoryItem(uri, values, select, args);
@@ -137,6 +145,12 @@ public class InventoryProvider extends ContentProvider {
             }
         }
 
+       if (values.containsKey(DbContract.TableInfo.COLUMN_ITEM_IMAGE)) {
+            String itemImage = values.getAsString(DbContract.TableInfo.COLUMN_ITEM_IMAGE);
+            if (itemImage == null) {
+                throw new IllegalArgumentException(" item requires Image");
+            }
+        }
         if (values.size() == 0) {
             return 0;
         }

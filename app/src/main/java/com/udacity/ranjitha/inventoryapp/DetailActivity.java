@@ -145,7 +145,7 @@ private ImageView mItemImageView;
 
             mItemNameTextView.setText(itemName);
             mItemPriceTextView.setText("Rs: "+Integer.toString(itemPrice));
-            mItemQuantityTextView.setText("Units: "+Integer.toString(itemQuantity));
+            mItemQuantityTextView.setText(Integer.toString(itemQuantity));
             if (itemImageString == null)
                 Toast.makeText(this, "Image  Fail!", Toast.LENGTH_SHORT).show();
             else {

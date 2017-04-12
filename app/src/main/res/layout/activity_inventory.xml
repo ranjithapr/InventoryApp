@@ -27,16 +27,16 @@
             android:layout_marginTop="56dp"
             android:text="@string/no_inventory_item"
             android:textSize="24sp"/>
+    </RelativeLayout>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/no_item_textview"
+            android:layout_below="@id/empty_view"
             android:layout_centerHorizontal="true"
             android:text="@string/please_add_item"
             android:textSize="16sp"
             android:id="@+id/addItemButton"/>
-    </RelativeLayout>
 
 
 
